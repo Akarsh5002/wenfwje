@@ -1,0 +1,30 @@
+class Rope{
+    constructor(body1,body2,point){
+        var options = {
+            bodyA: body1,
+            bodyB:body2,
+            pointB: point,
+            length: 200,
+            stiffness: 0.2
+        }
+        this.sling = Constraint.create(options);
+        this.point = point
+        this.color = color(random(0,200),random(0,200),random(0,200),random(0,200),random(0,200));
+        World.add(world,this.sling);
+    }
+
+    
+    
+    display(){
+        if(this.sling.bodyA){
+            var pointA = this.sling.bodyA.position
+            var pointB = this.sling.bodyB.position
+push();
+            strokeWeight(5)
+            stroke(this.color);
+            line(pointA.x,pointA.y,pointB.x + this.point.x,pointB.y+this.point.y);
+            pop();
+        }
+    }
+
+}
